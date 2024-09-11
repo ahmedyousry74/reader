@@ -1,0 +1,318 @@
+body{
+	margin: 0;
+	padding: 0;
+
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+/* Add necessary CSS for better mobile handling */
+* {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+#selectionText{
+	display: none; 
+}
+ul.tools {
+    padding: 0px;
+    display: none;
+    list-style: none;
+    box-shadow: 0px 0px 4px rgba(0,0,0,.5);
+    border: solid 1px #f2f2f2;
+    position: absolute;
+    background: #fff;
+    z-index: 1000000000000000000000000;
+}
+ul.tools li {
+    padding: 3px;
+	width: 180px;
+	margin-right: 2px;
+    text-align: right;
+    font-size: 13px;
+    border-bottom: none;
+    cursor: pointer;
+    /*display: inline-block;
+    width: 10px;
+    height: 20px;
+    border: solid 1px #000;
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;*/
+}
+span.highLightMotion {
+    padding: 5px;
+    cursor: pointer;
+}
+div#outline ul{
+    margin-right: 14px;
+}
+#sidebar{
+    direction: rtl;
+    width: 446px;
+    background: #f6f8fc;
+    top: 50px;
+   
+	
+}
+#outline a, #outline a:visited, #outline a:hover, #outline a:active{
+    color: #000;
+    display: block;
+    font-size: 15px;
+	border: none;
+    text-align: start;
+}
+#sidebar.opened+#page-container {
+    left: 440px;
+    height: 90%;
+}
+a.l:hover {
+    background-color: rgb(234, 247, 252);
+}
+#page-container {
+    top: 50px;
+}
+#header{
+    position: relative;
+	height: 33px;
+    width: 98%;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+    z-index: 100;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 12px;
+    flex-shrink: 0;
+	boxing-sizing: unset !important;
+}
+.sandwishbar{
+  width: 23px;
+  height: 3px;
+  background-color: #a1a1a1;
+  margin: 5px 0;
+}
+#footer{
+    position: fixed;
+    bottom: 0px;
+    height: 40px;
+    width: 100%;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
+    z-index: 100;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 10px;
+    flex-shrink: 0;
+
+}
+.header_img{
+    width: 20px;
+}
+#header span {
+    margin-right: 30px;
+
+    cursor: pointer;
+}
+.pf{
+    display: none;
+}
+#optionsSearch{
+    text-align: right;
+    display: none;
+    border: 1px solid #E0E0E0;
+  
+    padding: 10px;
+    width: 402px;
+    background-color: #fff;
+    /*height: 330px;*/
+    height: 550px;
+    position: relative;
+  
+    float: right;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 1px 1px;
+    margin-right: 18px;
+
+}
+
+#searchBox{
+    text-align: right;
+    padding: 5px;
+    width: 383px;
+    height: 32px;
+    border: 1px solid #a1a1a1;
+    border-radius: 10px;
+
+
+
+}
+.searchRes{
+    background-color: rgb(212 195 76 / 30%);
+	height: 400px;
+	overflow-y: scroll;
+}
+.highlightItem{
+  
+    border: 1px solid #c1c1c1;
+    height: 20px;
+    width: 20px;
+  
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+.highlightImportant{
+    background-color: #FFEB3B;
+}
+.highlightExam{
+    background-color: #2196f3;
+}
+.highlightOther{
+    background-color: #009688;
+}
+.importantHighlight{
+    width: 45%;
+    background-color: rgb(212 195 76 / 30%);
+    padding: 10px;
+    margin-bottom: -8px;
+
+}
+.examHighlight{
+    width: 45%;
+    background-color: rgb(76 174 212 / 30%);
+    padding: 10px;
+    margin-bottom: -8px;
+
+}
+.otherHighlight{
+    width: 45%;
+    background-color: rgb(76 212 119 / 30%);
+    padding: 10px;
+    margin-bottom: -8px;
+
+}
+#noteBoxHtml{
+    direction: rtl;
+    display: none;
+    border: 1px solid #E0E0E0;
+    border-radius: 11px;
+    padding: 10px;
+    width: 402px;
+    background-color: #fff;
+    height: 250px;
+    position: relative;
+    top: 200px;
+    float: right;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 1px 1px;
+    margin-right: 18px;;
+}
+#noteBoxHtml textarea{
+    width: 90%;
+    height: 75px;
+    border-radius: 13px;
+}
+#noteBoxHtml span{
+    cursor: pointer;
+    margin-right: 10px;
+    background: #2424d2;
+    padding: 10px 44px 10px 44px;
+    border: 1px solid;
+    border-radius: 11px;
+    width: 100px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+ul.tools li:hover {
+    background-color: #a0a8d8;
+}
+#searchResult{
+    list-style: none;
+    height: 75%;
+	overflow-y: scroll;
+	padding: 3px;
+}
+#searchResult li{
+    list-style: none;
+    padding: 5px;
+}
+#searchResult li:hover {
+    background-color: #a7b1d1;   
+}
+#optionsTabs{
+    text-align: right;
+    padding-top: 35px !important;
+    display: none;
+    border: 1px solid #E0E0E0;
+    
+    padding: 10px;
+    width: 580px;
+    background-color: #fff;
+    /*height: 330px;*/
+    height: 550px;
+    position: relative;
+    top: 0px;
+    float: right;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 1px 1px;
+    margin-right: 18px;
+}
+#optionUrl{
+    list-style: none;
+    display: inline;
+    margin-top: 10px;
+	
+}
+#optionUrl li{
+    list-style: none;
+    cursor: pointer;
+    display: inline;
+    padding: 5px;
+    
+    margin: 3px;
+    color:#000;
+	font-size: 14px;
+   
+   
+}
+.optionItem{
+    display: none;
+}
+#optionColors{
+    text-align: center;
+    padding-top: 20px;
+}
+#optionColors span{
+    margin: 2px;
+    padding: 5px;
+}
+/*.pf{
+    width: 80%;
+}
+.w1 {
+    width: 100%;
+}
+.pc {
+    width: 100% !important;
+}*/
+
+*, ::after, ::before{
+	box-sizing:  unset !important;
+}
+
+
+
+#page-container{
+  
+}

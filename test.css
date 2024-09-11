@@ -1,0 +1,26 @@
+#pf13 .t {
+    display: inline-block; /* Treat divs as inline blocks */
+    margin: 0; /* Remove any margins that might cause gaps */
+    padding: 0; /* Remove padding */
+    direction: rtl; /* Ensure right-to-left text direction */
+    unicode-bidi: bidi-override; /* Handle complex RTL text properly */
+}
+
+#pf13 {
+    direction: rtl; /* Ensure the container is also RTL */
+    unicode-bidi: bidi-override; /* Handle complex RTL text properly */
+    white-space: nowrap; /* Prevent line breaks within the container */
+}
+
+.t {
+    margin: 0;
+    padding: 0;
+    unicode-bidi: bidi-override;
+    white-space: pre-wrap;
+    /* transform: matrix(-0.85421, 0, 0, 0.3, 0, 5); */
+    line-height: normal;
+    letter-spacing: 0;
+    word-spacing: 0 !important;
+    display: inline-block;
+    position: absolute;
+}

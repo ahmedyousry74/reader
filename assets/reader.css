@@ -1,0 +1,535 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+/*::selection{
+    background:rgba(20,255,255,0.4);
+    padding: 158px !important;
+}
+::-moz-selection{
+    background:rgba(20,255,255,0.4);
+    padding: 158px !important;
+}*/
+.selectedText{
+    /* background: rgba(20, 255, 255, 0.4);
+    padding: 7% 20% 2% 20%; */
+}
+#selectionText{
+	display: none; 
+}
+ul.tools {
+    padding: 0px;
+    display: none;
+    list-style: none;
+    box-shadow: 0px 0px 4px rgba(0,0,0,.5);
+    border: solid 1px #f2f2f2;
+    position: absolute;
+    background: #fff;
+    z-index: 1000000000000000000000000;
+}
+ul.tools li {
+    padding: 3px;
+	width: 180px;
+	margin-right: 10px;
+    text-align: right;
+    font-size: 13px;
+    border-bottom: none;
+    cursor: pointer;
+    /*display: inline-block;
+    width: 10px;
+    height: 20px;
+    border: solid 1px #000;
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;*/
+}
+span.highLightMotion {
+    padding: 5px;
+    cursor: pointer;
+}
+div#outline ul{
+    margin-right: 14px;
+}
+#sidebar{
+    direction: rtl;
+    width: 446px;
+    background: #f4f4f4;
+    top: 65px;
+   
+	
+}
+#outline a, #outline a:visited, #outline a:hover, #outline a:active{
+    color: #000;
+    display: block;
+    font-size: 15px;
+	border: none;
+    text-align: start;
+    padding: 8px 5px
+}
+#sidebar.opened+#page-container {
+    left: 440px;
+    height: 90%;
+}
+a.l:hover {
+    background-color: rgb(211 233 241);
+}
+#page-container {
+    top: 50px;
+}
+#header{
+    position: relative;
+	height: 33px;
+    width: 98%;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+    z-index: 100;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 12px;
+    flex-shrink: 0;
+	boxing-sizing: unset !important;
+}
+.sandwishbar{
+  width: 23px;
+  height: 3px;
+  background-color: #ccc;
+  margin: 5px 0;
+}
+#footer{
+    position: fixed;
+    bottom: 0px;
+    height: 40px;
+    width: 100%;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
+    z-index: 100;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 10px;
+    flex-shrink: 0;
+
+}
+.header_img{
+    width: 22px;
+    /* margin-right: 62px; */
+}
+#header span {
+    /* margin-right: 30px; */
+
+    cursor: pointer;
+}
+.pf{
+    display: none;
+}
+#optionsSearch{
+    text-align: right;
+    display: none;
+    border: 1px solid #E0E0E0;
+  
+    padding: 10px;
+    width: 402px;
+    background-color: #fff;
+    /*height: 330px;*/
+    height: 550px;
+    position: relative;
+  
+    float: right;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 1px 1px;
+    margin-right: 18px;
+
+}
+
+#searchResult::-webkit-scrollbar {
+    width: 5px;
+    height: 15px;
+    border-radius: 8px;
+    background-color: transparent;
+}
+#searchResult::-webkit-scrollbar-thumb {
+    background-color: #231d82;
+    border-radius: 8px;
+}
+.optionBox h3{
+    color: #888;
+    font-weight: 400;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+#searchBox{
+    text-align: right;
+    padding: 5px;
+    width: 383px;
+    height: 32px;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    margin: 10px 0 20px 0;
+    padding-inline-start: 13px;
+    direction: rtl;
+}
+#searchResult{
+    padding-top: 25px;
+    border-top: 1px solid #ccc;
+}
+#searchResult h4{
+    color: #151515;
+    font-weight: 500;
+    font-size: 25px;
+    padding-inline-end: 25px;
+}
+#searchResult ul{
+    padding-inline-end: 15px
+}
+#searchResult ul li{
+    color: #666;
+    padding-inline-end: 12px;
+    border-radius: 4px;
+}
+#searchResult ul li:hover {
+    background-color: #e7e7e7 !important;
+}
+
+.searchRes{
+    background-color: rgb(212 195 76 / 30%);
+	height: 400px;
+	overflow-y: scroll;
+}
+.highlightItem{
+  
+    border: 1px solid #c1c1c1;
+    height: 25px;
+    width: 25px;
+    margin: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+.highlightImportant{
+    background-color: #FFEB3B;
+}
+.highlightExam{
+    background-color: #2196f3;
+}
+.highlightOther{
+    background-color: #009688;
+}
+.importantHighlight{
+    /* width: 45%; */
+    background-color: rgb(212 195 76 / 30%);
+    /*padding: 10px;*/
+    /* padding: 7% 20% 2% 20%; */
+    /* margin-bottom: -8px; */
+
+}
+.examHighlight{
+    /* width: 45%; */
+    background-color: rgb(76 174 212 / 30%);
+    /*padding: 10px;*/
+    /* padding: 7% 20% 2% 20%; */
+    /* margin-bottom: -8px; */
+
+}
+.otherHighlight{
+    /* width: 45%; */
+    background-color: rgb(76 212 119 / 30%);
+    /* padding: 7% 20% 2% 20%; */
+    /*padding: 10px;*/
+    /* margin-bottom: -8px; */
+
+}
+#noteBoxHtml{
+    direction: rtl;
+    display: none;
+    border: 1px solid #E0E0E0;
+    border-radius: 11px;
+    padding: 10px;
+    width: 402px;
+    background-color: #fff;
+    height: 250px;
+    position: relative;
+    top: 200px;
+    float: right;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 1px 1px;
+    margin-right: 18px;;
+}
+#noteBoxHtml textarea{
+    width: 90%;
+    height: 75px;
+    border-radius: 13px;
+}
+#noteBoxHtml span{
+    cursor: pointer;
+    margin-right: 10px;
+    background: #2424d2;
+    padding: 10px 44px 10px 44px;
+    border: 1px solid;
+    border-radius: 11px;
+    width: 100px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+ul.tools li:hover {
+    background-color: #a0a8d8;
+}
+#searchResult{
+    list-style: none;
+    height: 75%;
+	overflow-y: scroll;
+	padding: 3px;
+}
+#searchResult li{
+    list-style: none;
+    padding: 5px;
+}
+#searchResult li:hover {
+    background-color: #a7b1d1;   
+}
+#optionsTabs{
+    text-align: right;
+    padding-top: 35px !important;
+    display: none;
+    border: 1px solid #E0E0E0;
+    
+    padding: 10px;
+    width: 580px;
+    background-color: #fff;
+    /*height: 330px;*/
+    height: 550px;
+    position: relative;
+    top: 0px;
+    float: right;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 1px 1px;
+    margin-right: 18px;
+}
+#optionUrl{
+    list-style: none;
+    display: inline;
+    margin-top: 10px;
+	
+}
+#optionUrl li{
+    list-style: none;
+    cursor: pointer;
+    display: inline;
+    padding: 5px;
+    
+    margin: 3px;
+    color:#000;
+	font-size: 14px;
+   
+   
+}
+.optionItem{
+    display: none;
+}
+#optionColors{
+    text-align: center;
+    padding-top: 20px;
+}
+#optionColors span{
+    margin: 2px;
+    padding: 5px;
+}
+/*.pf{
+    width: 80%;
+}
+.w1 {
+    width: 100%;
+}
+.pc {
+    width: 100% !important;
+}*/
+
+*, ::after, ::before{
+	box-sizing:  unset !important;
+}
+
+/* update yousry */
+div.t{
+    white-space: pre;
+    display: inline-block !important;
+}
+
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 1px;
+}
+
+/* Style the slider container (optional) */
+#zoomscroll {
+    width: 150px; /* Set the width of the slider */
+  }
+  
+  /* WebKit browsers (Chrome, Safari, etc.) */
+  #zoomscroll::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #ccc; /* Track color */
+    border-radius: 25px;
+    border: 1px solid #ccc
+  }
+  
+  #zoomscroll::-webkit-slider-thumb {
+    height: 20px;
+    width: 20px;
+    background: #ff6c00; /* Thumb color */
+    border-radius: 50%; /* Make the thumb round */
+    cursor: pointer;
+    margin-top: -5px; /* Center the thumb over the track */
+  }
+  
+  #zoomscroll:focus {
+    outline: none; /* Remove focus outline */
+  }
+  
+  #zoomscroll::-webkit-slider-runnable-track:hover {
+    background: #ccc; /* Track color on hover */
+  }
+  
+  
+  /* WebKit browsers (Chrome, Safari, etc.) */
+  #zoomscroll::-webkit-slider-thumb {
+    height: 2px;         /* Set the height of the thumb */
+    width: 2px;          /* Set the width of the thumb */
+    background-color: #ffc90054;  /* Thumb color */
+    border-radius: 50%;   /* Make the thumb round (circle) */
+    cursor: pointer;      /* Change cursor to pointer */
+    border: 1px solid #1214cc; /* Add a white border around the thumb */
+    box-shadow: 0 0 5px #2530cc; /* Add a subtle shadow */
+  }
+  
+  body{
+    background-color: #f4f4f4 !important;
+  }
+
+  #marker_pen_controls a {
+    color: #000;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 15px;
+    color: #555;
+}
+#marker_pen_controls a:hover{
+    background-color: #75AA76;
+    border-color: #75AA76;
+    color: #fff !important;
+}
+div#marker_pen_controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+#optionExams table{
+    margin-top: 25px
+}
+#optionExams .complete{
+    background: #a94040;
+    padding: 2px 25px;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 15px;
+}
+#optionExams .avalibale{
+    background: #75aa76;
+    padding: 2px 25px;
+    border-radius: 25px;
+    color: #fff !important;
+    font-size: 15px;
+}
+#page-container{
+    background: #fff !important;
+}
+.pf{
+    border: 1px solid #ccc;
+    box-shadow: none !important;
+}
+#pageText{
+    border: solid 1px #ccc !important;
+    border-radius: 3px !important;
+    padding: 4px;
+    width: 24px !important;
+    text-align: center;
+    margin-right: 5px;
+}
+#outline{
+    font-family: 'cairo' , sans-serif !important
+}
+#noteBoxHtml {
+    direction: rtl;
+    display: none;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    padding: 25px;
+    width: 350px;
+    background-color: #fff;
+    height: auto;
+    position: relative;
+    top: 20px;
+    right: 27px;
+    float: right;
+    box-shadow: none !important;
+    margin-right: 18px;
+    /* display: flex !important; */
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    text-align: start;
+    z-index: 99999999999;
+}
+#noteBoxHtml h1{
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 25px;
+}
+#noteBoxHtml textarea {
+    width: 100%;
+    height: 75px;
+    border-radius: 13px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+#noteBoxHtml span {
+    cursor: pointer;
+    margin-right: 0;
+    background: #23c283;
+    padding: 6px 10px;
+    border: 1px solid;
+    border-radius: 11px;
+    width: 100px;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    font-size: 22px;
+    margin-top: 25px;
+    display: block;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #75AA76;
+    border-radius: 0px;
+    height: 4px;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: transparent;
+}
