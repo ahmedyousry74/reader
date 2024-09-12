@@ -188,7 +188,7 @@ $(function () {
 	$('#sidebar').prepend(sidebarAddition);
 	var highLightTool = '<ul class="tools">';
 
-	highLightTool += '<li><span class="highlightItem highlightImportant" color="important"></span>';
+	highLightTool += '<li class="highlightItems"><span class="highlightItem highlightImportant" color="important"></span>';
 	highLightTool += '<span  class="highlightItem highlightExam" color="exam"></span>';
 	highLightTool += '<span  class="highlightItem highlightOther" color="other"></span></li>';
 	// highLightTool+='<li><span class="highLightMotion">❤️</span>';
@@ -288,9 +288,12 @@ $(function () {
 	});
 	$('.pf').bind("mouseup", function () {
 		var selectedText = x.Selector.getSelected();
+		
 		if (selectedText != '') {
 			console.log(selectedText);
 			$('#selectionText').html(getTextFromHtml(getSelectionHtml()));//.select();
+
+			
 
 			// console.log(getSelectionHtml());
 
@@ -317,6 +320,8 @@ $(function () {
 			$('ul.tools').fadeOut(200);
 			$('.selectedText').removeClass('selectedText');
 		}
+
+
 	});
 
 	$('#addNoteBtn').on('click', function () {
@@ -408,16 +413,34 @@ $(function () {
 
 	});
 
-	$('#optionWikipedia').click(function () {
-		var text = $('#selectionText').val();
-		text = text.replace(" ", "_");
-		window.open('https://ar.wikipedia.org/wiki/' + text, '_blank');
-	});
-	$('#optionGoogle').click(function () {
-		var text = $('#selectionText').val();
-		text = text.replace(" ", "+");
-		window.open('https://www.google.com/search?q=' + text, '_blank');
-	});
+	// $('#optionWikipedia').click(function () {
+	// 	var text = $('#selectionText').val();
+	// 	text = text.replace(" ", "_");
+	// 	window.open('https://ar.wikipedia.org/wiki/' + text, '_blank');
+	// });
+	// $('#optionGoogle').click(function () {
+	// 	var text = $('#selectionText').val();
+	// 	text = text.replace(" ", "+");
+	// 	window.open('https://www.google.com/search?q=' + text, '_blank');
+	// });
+
+	// <script>
+  $('#optionWikipedia').click(function () {
+    var text = $('#selectionText').val();
+    text = text.replace(" ", "_");
+    var url = 'https://ar.wikipedia.org/wiki/' + text;
+    $('#wikipediaFrame').attr('src', url);
+    $('#wikipediaModal').modal('show');
+  });
+
+  $('#optionGoogle').click(function () {
+    var text = $('#selectionText').val();
+    text = text.replace(" ", "+");
+    var url = 'https://www.google.com/search?q=' + text;
+    $('#googleFrame').attr('src', url);
+    $('#googleModal').modal('show');
+  });
+
 
 	$('#searchBox').on('keyup', function () {
 		var searchText = $('#searchBox').val();
@@ -1018,3 +1041,6 @@ function gotToPage(c_page) {
 }
 
 //--------------------------------------------------------------------------------------
+
+
+
