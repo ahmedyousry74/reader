@@ -120,11 +120,27 @@ function showSearchReasult(textClass, c_page) {
 	$('.' + textClass).focus();
 	$('#pageText').change();
 }
+// function goToGoogleTranslate() {
+// 	var text = $('#selectionText').val();
+// 	//text = text.replace(" ", "_");
+// 	window.open('https://translate.google.com/?sl=ar&tl=en&text=' + text + '&op=translate', '_blank');
+// }
+
 function goToGoogleTranslate() {
-	var text = $('#selectionText').val();
-	//text = text.replace(" ", "_");
-	window.open('https://translate.google.com/?sl=ar&tl=en&text=' + text + '&op=translate', '_blank');
+	var text = encodeURIComponent(document.getElementById('selectionText').value);
+	var url = 'https://translate.google.com/?sl=ar&tl=en&text=' + text + '&op=translate';
+	document.getElementById('translateFrame').src = url;
+
+	// Show the modal using Bootstrap's JavaScript API
+	$('#translateModal').modal('show');
 }
+
+// document.querySelector('[data-toggle="modal"]').addEventListener('click', function () {
+// 	var text = encodeURIComponent(document.getElementById('selectionText').value);
+// 	var url = 'https://translate.google.com/?sl=ar&tl=en&text=' + text + '&op=translate';
+// 	document.getElementById('translateFrame').src = url;
+// });
+
 function saySpeech() {
 	alert('ii');
 	const voices = window.speechSynthesis.getVoices();
@@ -300,27 +316,30 @@ $(function () {
 			var totalhieght = pageY + 300;
 			if (window.innerHeight < totalhieght) {
 				$('ul.tools').css({
-
-
 					'left': pageX + 5,
 					'top': pageY - 300
 				}).fadeIn(200);
 			}
 			else {
 				$('ul.tools').css({
-
-
 					'left': pageX + 5,
 					'top': pageY - 55
 				}).fadeIn(200);
 			}
-
-
 		} else {
 			$('ul.tools').fadeOut(200);
 			$('.selectedText').removeClass('selectedText');
 		}
+		$(document).on('click', function (event) {
+			if (!$(event.target).closest('.tools').length && !$(event.target).closest('.pf').length) {
+				$('ul.tools').fadeOut(200);
+			}
+		});
 
+		// Hide the context menu when clicking on an <li> item
+		$('ul.tools li').on('click', function () {
+			$('ul.tools').fadeOut(200);
+		});
 
 	});
 
