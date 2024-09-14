@@ -473,49 +473,6 @@ $(function () {
 			$('#searchResult').append('<h4>' + value + '</h4>');
 			var resultOptions = '';
 			$('.searchRes').removeClass('searchRes');
-			// $('.t span').each(function () {
-			// 	var cText = $(this).html();
-			// 	cText = $.trim(cText);
-			// 	if (cText == value) {
-			// 		//console.log(cText);
-			// 		$(this).addClass('searchRes');
-			// 		var cClass = $(this).attr('class');
-			// 		cClass = cClass.replace(" ", "-");
-			// 		$(this).attr('showDiv', cClass);
-			// 		console.log($(this).index());
-			// 		var cPageNumber = $(this).parent().parent().attr('data-page-no');
-			// 		alert(cPageNumber)
-			// 		var cIndex = $(this).index();
-			// 		var finalText = '';
-			// 		// if($(this).prev().prev().html() !='' && $(this).prev().prev().html() !='undefined')
-			// 		// {
-			// 		// 	finalText+=$(this).prev().prev().html()+' ';
-			// 		// }
-			// 		// if($(this).prev().html() !='' && $(this).prev().html() !='undefined')
-			// 		// {
-			// 		// 	finalText+=$(this).prev().html()+' ';
-			// 		// }
-			// 		// finalText+=cText;
-			// 		// if($(this).next().html() !='' && $(this).next().html() !='undefined')
-			// 		// {
-			// 		// 	finalText+=$(this).next().html()+' ';
-			// 		// }
-			// 		// if($(this).next().next().html() !='' && $(this).next().next().html() !='undefined')
-			// 		// {
-			// 		// 	finalText+=$(this).next().next().html()+' ';
-			// 		// }
-			// 		finalText = $(this).prev().prev().html() + ' ' + $(this).prev().html() + ' ' + cText + ' ' + $(this).next().html() + ' ' + $(this).next().next().html();
-			// 		finalText = stripTags(finalText);
-			// 		cPageNumber = stripTags(cPageNumber);
-			// 		// console.log('final:'+finalText);
-			// 		// console.log('number:'+cPageNumber);
-			// 		finalText = finalText.replace('“', '');
-			// 		finalText = finalText.replace('"', '');
-			// 		finalText = finalText.replace("'", '');
-			// 		resultOptions += '<li onclick=\"showSearchReasult(\'' + finalText + '\', \'' + cPageNumber + '\')\">' + finalText + '</li>';
-
-			// 	}
-			// });
 			$('.t span').each(function () {
 				var cText = $(this).html();
 				cText = $.trim(cText);
