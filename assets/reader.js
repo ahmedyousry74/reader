@@ -128,10 +128,8 @@ function showSearchReasult(textClass, c_page) {
 
 function goToGoogleTranslate() {
 	var text = encodeURIComponent(document.getElementById('selectionText').value);
-	var url = 'https://translate.google.com/?sl=ar&tl=en&text=' + text + '&op=translate';
+	var url = 'https://www.bing.com/translator/?sl=ar&tl=en&text=' + text;
 	document.getElementById('translateFrame').src = url;
-
-	// Show the modal using Bootstrap's JavaScript API
 	$('#translateModal').modal('show');
 }
 
@@ -455,7 +453,7 @@ $(function () {
   $('#optionGoogle').click(function () {
     var text = $('#selectionText').val();
     text = text.replace(" ", "+");
-    var url = 'https://www.google.com/search?q=' + text;
+    var url = 'https://www.bing.com/search?q=' + text;
     $('#googleFrame').attr('src', url);
     $('#googleModal').modal('show');
   });
