@@ -248,7 +248,7 @@ $(function () {
 	optionsTabs += '<div id="optionVideos" class="optionItem"><div style="margin-top: 10px; padding: 15px; background: #f2f2f2;">شروحات بالفيديو</div><table width="100%" id="VideosTable"></table></div>';
 	optionsTabs += '<div id="optionBookMarks" class="optionItem"><div style="margin-top: 10px; padding: 15px; background: #f2f2f2;">العلامات المرجعية الخاصة بي <div  style="float: left; text-align: center; font-size: 19px; background: #006699; height: 25px; width: 25px; line-height: 20px; border-radius: 50%; color: #fff;pointer:cursor;" onclick="$(\'#markIt\').click();">+</div></div><table width="100%" id="BookMarksTable"><tr><Td align="left" style="border-bottom: solid 1px #f1f1f1;"><img width="15" style="width:20px; cursor: pointer;" src="../../../assets/img/bookmark_marked.png" id="un_markIt_" ></td><td  style="border-bottom: solid 1px #f1f1f1; padding: 15px; ">علامة استعلم تدريبية</td></tr><tr style="border-bottom: solid 1px #f1f1f1;"><Td align="left" style="border-bottom: solid 1px #f1f1f1;"><img width="15" style="border-bottom: solid 1px #f1f1f1; width:20px; cursor: pointer;" src="../../../assets/img/bookmark_marked.png" id="markIt_" ></td><td style="padding: 15px; ">علامة استعلم تدريبية</td></tr></table></div>';
 	//optionsTabs+='<div id="optionCards" class="optionItem"></div>';
-	optionsTabs += '<div id="optionQuestions" class="optionItem"><div style="margin-top: 10px; padding: 15px; background: #f2f2f2;">تمارين الدرس<div  style="float: left; text-align: center; font-size: 19px; background: #006699; height: 25px; width: 200px; line-height: 20px; color: #fff;pointer:cursor;display:none;" id="examResult"></div></div><div id="qContainer"></div></div>';
+	optionsTabs += '<div id="optionQuestions" class="optionItem"><div style="margin-top: 10px; padding: 15px; background: #f2f2f2;">تمارين الدرس<div  style="float: left; text-align: center; font-size: 19px; background: #006699;  width: 200px;  color: #fff;pointer:cursor;display:none;" id="examResult"></div></div><div id="qContainer"></div></div>';
 	optionsTabs += `
 	<div id="optionExams" class="optionItem">
 	  <div style="margin-top: 10px; padding: 15px; background: #f2f2f2;">
@@ -876,7 +876,7 @@ function getAllVideos() {
 				var title = this.title;
 				var url = this.url;
 
-				$('#VideosTable').append('<tr><Td align="left" style="border-bottom: solid 1px #f1f1f1;"><video width="320" height="120" controls><source src="' + url + '" type="video/mp4">Your browser does not support the video tag.</video></td><td  style="border-bottom: solid 1px #f1f1f1; padding: 15px; ">' + title + '</td></tr>');
+				$('#VideosTable').append('<tr class="video-item"><Td style="border-bottom: solid 1px #f1f1f1;"><video width="320" height="120" controls><source src="' + url + '" type="video/mp4">Your browser does not support the video tag.</video></td><td  style="padding: 15px 0;font-size: 15px;color: #222; ">' + title + '</td></tr>');
 
 			});
 
@@ -910,7 +910,7 @@ function getAllQuestions() {
 				var question = this.question;
 				var answers = this.answers;
 				var true_answer = this.true_answer;
-				qHtml += '<div class="q_' + count + '"><h1 style="font-size: 25px !important;color: rgb(0, 102, 153) !important;">' + question + '</h1>';
+				qHtml += '<div class="q_' + count + ' question"><h1>' + question + '</h1>';
 				var answers = JSON.parse(answers);
 
 				// Use $.each to iterate over the object
@@ -925,7 +925,7 @@ function getAllQuestions() {
 				count++;
 			});
 			if (qHtml != '') {
-				qHtml += '<br/><input type="button" id="submitExam" onclick="submitExam();" c="' + length + '" style="border-radius: 15px; border: none; width: 100px; padding: 10px; background:#006699; color: #fff;" value="ارسال">';
+				qHtml += '<br/><input type="button" id="submitExam" onclick="submitExam();" c="' + length + '" style="" value="ارسال">';
 
 			} else {
 				qHtml += '<br/><p style="text-align:center">لا يوجد تمارين لهذا الدرس.</p>';
@@ -964,10 +964,7 @@ function submitExam() {
 				}
 			} else {
 				if (a == '1') {
-					$(this).parent().css('background-color', 'green');
-					$(this).parent().css('color', 'white');
-					$(this).parent().css('border-radius', '22px');
-					$(this).parent().css('padding', '4px');
+					$(this).parent().addClass('correct-answer');
 				}
 			}
 
