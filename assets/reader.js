@@ -57,15 +57,18 @@ function setZoom(zoom, el) {
 
 //setZoom(5,document.getElementsByClassName('container')[0]);
 
-function showVal(a) {
-	allclasses = document.getElementsByClassName('pf');
-	for (var i = 0; i < allclasses.length; ++i) {
-		if (allclasses[i].style.display == "block") {
-			var zoomScale = Number(a) / 10 + 1;
-			setZoom(zoomScale, allclasses[i]);
-		}
+let currentZoomVal = 0;
 
-	}
+function showVal(a) {
+    currentZoomVal = a;  // Store the new zoom value globally
+    allclasses = document.getElementsByClassName('pf');
+    for (var i = 0; i < allclasses.length; ++i) {
+        if (allclasses[i].style.display == "block") {
+            var zoomScale = Number(a) / 10 + 1;
+            setZoom(zoomScale, allclasses[i]);
+        }
+    }
+}
 
 
 	//originwidth = document.getElementById("pf1").offsetWidth;
@@ -77,7 +80,7 @@ function showVal(a) {
 
 	//document.getElementById("pf1").style.height='100px';
 	// document.getElementById("pf1").style.overflow='auto';
-}
+// }
 
 function showMarker() {
 	$.markerPen({
@@ -403,7 +406,9 @@ $(function () {
 		var c_page = $(this).attr('page');
 		$('.pf').css('display', 'none');
 		$('.pf').eq(c_page).css('display', 'block');
-		document.getElementById("zoomscroll").value = 0;
+		// Set the zoom value based on the global zoom setting
+		applyZoomToPage($('.pf').eq(c_page));
+	
 		$('#pageText').val(c_page);
 		$('#pageText').change();
 	});
@@ -1046,12 +1051,19 @@ function getCookie(name) {
 	return null;
 }
 function gotToPage(c_page) {
+    $('.pf').css('display', 'none');
+    $('.pf').eq(c_page).css('display', 'block');
+    // Apply zoom when the page changes
+    applyZoomToPage($('.pf').eq(c_page));
 
-	$('.pf').css('display', 'none');
-	$('.pf').eq(c_page).css('display', 'block');
-	document.getElementById("zoomscroll").value = 0;
-	$('#pageText').val(c_page);
-	$('#pageText').change();
+    $('#pageText').val(c_page);
+    $('#pageText').change();
+}
+
+// Helper function to apply the zoom to the current page
+function applyZoomToPage(pageElement) {
+    var zoomScale = Number(currentZoomVal) / 10 + 1;
+    setZoom(zoomScale, pageElement[0]);  // Apply the zoom scale
 }
 
 //--------------------------------------------------------------------------------------
