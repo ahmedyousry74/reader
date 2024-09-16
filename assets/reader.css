@@ -230,21 +230,21 @@ a.l:hover {
 }
 .importantHighlight {
   /* width: 45%; */
-  background-color: rgb(212 195 76 / 30%);
+  background-color: rgb(212 195 76 / 47%);
   /*padding: 10px;*/
   /* padding: 7% 20% 2% 20%; */
   /* margin-bottom: -8px; */
 }
 .examHighlight {
   /* width: 45%; */
-  background-color: rgb(76 174 212 / 30%);
+  background-color: rgb(76 174 212 / 47%);
   /*padding: 10px;*/
   /* padding: 7% 20% 2% 20%; */
   /* margin-bottom: -8px; */
 }
 .otherHighlight {
   /* width: 45%; */
-  background-color: rgb(76 212 119 / 30%);
+  background-color: rgb(76 212 119 / 47%);
   /* padding: 7% 20% 2% 20%; */
   /*padding: 10px;*/
   /* margin-bottom: -8px; */
@@ -283,7 +283,9 @@ a.l:hover {
   font-size: 22px;
   margin-top: 20px;
 }
-
+ul.tools li{
+  cursor: pointer !important;
+}
 ul.tools li:hover {
   background-color: #a0a8d8;
 }
@@ -670,4 +672,7 @@ div#marker_pen_controls {
   body {
     display: none;
   }
+}
+.t.readerLine.m1,.t.readerLine.m5,.t.readerLine.m6,.t.readerLine.m4,.t.readerLine.m3,.t.readerLine.m7{
+  display: none !important;
 }
