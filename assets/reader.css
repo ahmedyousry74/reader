@@ -66,7 +66,7 @@ div#outline ul {
   direction: rtl;
   width: 446px;
   background: #f4f4f4;
-  top: 65px;
+  top: 102px;
 }
 #outline a,
 #outline a:visited,
@@ -87,11 +87,11 @@ a.l:hover {
   background-color: rgb(211 233 241);
 }
 #page-container {
-  top: 50px;
+  top: 95px;
 }
 #header {
   position: relative;
-  height: 33px;
+  height: 80px;
   width: 98%;
   background: white;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
@@ -665,4 +665,9 @@ div#marker_pen_controls {
     text-align: right;
     padding-bottom: 20px;
     border-bottom: 1px solid #ccc;
+}
+@media print {
+  body {
+    display: none;
+  }
 }

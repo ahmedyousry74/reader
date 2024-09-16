@@ -191,12 +191,14 @@ $(function () {
 	//  });
 
 	$('.pf').eq(configData.page).css('display', 'block');
-	$('body').prepend('<div id="header"><span style="" ><div id="sidebarMenu" style="text-align: center;  float: left; " onclick="showHideSideBar();"><div class="sandwishbar"></div><div class="sandwishbar" style="width: 19px;"></div><div class="sandwishbar"></div></div>' +
-		'<span class="arrow left" style="border-width: 0 4px 4px 0; padding: 5px; margin-left: 20px;" ></span></span><div style="display: flex; justify-content: flex-start; align-items: center; flex-direction: row; gap: 25px;">' +
+	$('body').prepend('<div id="header"><span style="display:flex;justifu-content:flex-start;align-items:center;gap:15px" ><div id="sidebarMenu" style="text-align: center;  float: left; " onclick="showHideSideBar();"><div class="sandwishbar"></div><div class="sandwishbar" style="width: 19px;"></div><div class="sandwishbar"></div></div>' +
+		'<a href="https://scientific-thought.com/" target="_blank"> <img src="../../../assets/img/logo.jpg" width="100" height="85" style="object-fit:contain" />  </a>  </span>' +
 		//'<span style="float:right;" ><img src="../../../assets/img/more.png" class="header_img"></span><span style="float:right;" ><img src="../../../assets/img/flash-card.png"  class="header_img"></span><span style="float:right;" ><img src="../../../assets/img/reference.png" class="header_img"></span>'+
-		'<span style="float:right;" ><img src="../../../assets/img/dots-horizontal.svg" id="allOptions" class="header_img"></span>' +
-		'<span style="display: flex; justify-content: flex-start; align-items: center; flex-direction: row; gap: 15px;" ><img id="searchOption" src="../../../assets/img/search-lg.svg" class="header_img"><img  src="../../../assets/img/pencil-01.svg" class="header_img" onclick="showMarker();" ></span>' +
-		' <input style="" id="zoomscroll" min="1" max="10" value="0" step="1" onchange="showVal(this.value)" type="range"/></div></div>');
+		'<input style="" id="zoomscroll" min="1" max="10" value="0" step="1" onchange="showVal(this.value)" type="range"/>' +
+		'<div style="display: flex; justify-content: flex-start; align-items: center; flex-direction: row; gap: 20px;"><a href="https://wa.me/+201070113399?text=" style="float:right;" ><img src="../../../assets/img/headphones-01.svg" width="30" height="30"></a>' +
+		'<img id="searchOption" src="../../../assets/img/search-lg.svg" width="30" height="30">' +
+		'<img  src="../../../assets/img/pencil-01.svg" width="30" height="30" onclick="showMarker();" >'+
+		'<span style="float:right;" ><img src="../../../assets/img/dots-horizontal.svg" id="allOptions" width="30" height="30"></span></div>');
 
 	$('body').attr('oncontextmenu', 'return false;');
 	// $('#sidebar').css('direction','rtl');
