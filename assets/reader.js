@@ -195,9 +195,9 @@ $(function () {
 		'<a href="https://scientific-thought.com/" target="_blank"> <img src="../../../assets/img/logo.jpg" width="100" height="85" style="object-fit:contain" />  </a>  </span>' +
 		//'<span style="float:right;" ><img src="../../../assets/img/more.png" class="header_img"></span><span style="float:right;" ><img src="../../../assets/img/flash-card.png"  class="header_img"></span><span style="float:right;" ><img src="../../../assets/img/reference.png" class="header_img"></span>'+
 		'<input style="" id="zoomscroll" min="1" max="10" value="0" step="1" onchange="showVal(this.value)" type="range"/>' +
-		'<div style="display: flex; justify-content: flex-start; align-items: center; flex-direction: row; gap: 20px;"><a href="https://wa.me/+201070113399?text=" style="float:right;" ><img src="../../../assets/img/headphones-01.svg" width="30" height="30"></a>' +
-		'<img id="searchOption" src="../../../assets/img/search-lg.svg" width="30" height="30">' +
-		'<img  src="../../../assets/img/pencil-01.svg" width="30" height="30" onclick="showMarker();" >'+
+		'<div style="display: flex; justify-content: flex-start; align-items: center; flex-direction: row; gap: 20px;"><a href="https://wa.me/+201070113399?text=" target="_blank" style="float:right;" ><img src="../../../assets/img/headphones-01.svg" width="30" height="30"></a>' +
+		'<img  src="../../../assets/img/pencil-line.svg" width="30" height="30" onclick="showMarker();" >'+
+		'<div class="search_div"><img id="searchOption" src="../../../assets/img/search-refraction.svg" width="30" height="30"></div>' +
 		'<span style="float:right;" ><img src="../../../assets/img/dots-horizontal.svg" id="allOptions" width="30" height="30"></span></div>');
 
 	$('body').attr('oncontextmenu', 'return false;');

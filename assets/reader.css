@@ -793,3 +793,11 @@ div#marker_pen_controls {
     transform: scale(1.5);
   }
 }
+.search_div{
+  background: #75aa76;
+    padding: 4px;
+    border-radius: 50%;
+}
+.search_div img{
+  filter: invert(1);
+}
