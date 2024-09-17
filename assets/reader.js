@@ -60,26 +60,26 @@ function setZoom(zoom, el) {
 let currentZoomVal = 0;
 
 function showVal(a) {
-    currentZoomVal = a;  // Store the new zoom value globally
-    allclasses = document.getElementsByClassName('pf');
-    for (var i = 0; i < allclasses.length; ++i) {
-        if (allclasses[i].style.display == "block") {
-            var zoomScale = Number(a) / 10 + 1;
-            setZoom(zoomScale, allclasses[i]);
-        }
-    }
+	currentZoomVal = a;  // Store the new zoom value globally
+	allclasses = document.getElementsByClassName('pf');
+	for (var i = 0; i < allclasses.length; ++i) {
+		if (allclasses[i].style.display == "block") {
+			var zoomScale = Number(a) / 10 + 1;
+			setZoom(zoomScale, allclasses[i]);
+		}
+	}
 }
 
 
-	//originwidth = document.getElementById("pf1").offsetWidth;
-	//alert(originwidth);
-	//newWidth = parseInt(originwidth) + 100;
-	//originheight = document.getElementById("pf1").style.offsetHeight;
-	// document.getElementById("pf1").style.width=newWidth + 'px'   ;
-	// documentgetElementsByTagName('img').style.width = newWidth + 'px';
+//originwidth = document.getElementById("pf1").offsetWidth;
+//alert(originwidth);
+//newWidth = parseInt(originwidth) + 100;
+//originheight = document.getElementById("pf1").style.offsetHeight;
+// document.getElementById("pf1").style.width=newWidth + 'px'   ;
+// documentgetElementsByTagName('img').style.width = newWidth + 'px';
 
-	//document.getElementById("pf1").style.height='100px';
-	// document.getElementById("pf1").style.overflow='auto';
+//document.getElementById("pf1").style.height='100px';
+// document.getElementById("pf1").style.overflow='auto';
 // }
 
 function showMarker() {
@@ -196,7 +196,7 @@ $(function () {
 		//'<span style="float:right;" ><img src="../../../assets/img/more.png" class="header_img"></span><span style="float:right;" ><img src="../../../assets/img/flash-card.png"  class="header_img"></span><span style="float:right;" ><img src="../../../assets/img/reference.png" class="header_img"></span>'+
 		'<input style="" id="zoomscroll" min="1" max="10" value="0" step="1" onchange="showVal(this.value)" type="range"/>' +
 		'<div style="display: flex; justify-content: flex-start; align-items: center; flex-direction: row; gap: 20px;"><a href="https://wa.me/+201070113399?text=" target="_blank" style="float:right;" ><img src="../../../assets/img/headphones-01.svg" width="30" height="30"></a>' +
-		'<img  src="../../../assets/img/pencil-line.svg" width="30" height="30" onclick="showMarker();" >'+
+		'<img  src="../../../assets/img/pencil-line.svg" width="30" height="30" onclick="showMarker();" >' +
 		'<div class="search_div"><img id="searchOption" src="../../../assets/img/search-refraction.svg" width="30" height="30"></div>' +
 		'<span style="float:right;" ><img src="../../../assets/img/dots-horizontal.svg" id="allOptions" width="30" height="30"></span></div>');
 
@@ -222,7 +222,7 @@ $(function () {
 	//highLightTool+='<li>Define</li><li>أسأل المعلم</li>';
 	highLightTool += '<li id="optionWikipedia">ويكبيديا <img src="../../../assets/img/Wikipedia-logo-v2.svg.png" width="24" height="24" style="margin-inline-start: 8px" /> </li>';
 	highLightTool += '<li id="optionGoogle">بحث  جوجل <img src="../../../assets/img/7123025_logo_google_g_icon.svg" width="30" height="30" style="margin-inline-start: 8px" /> </li>';
-	highLightTool+='<li onclick="saySpeech();"> القارئ الصوتي <img src="../../../assets/img/microphone-01.svg" width="24" height="24" style="margin-inline-start: 8px" /> </li>';
+	highLightTool += '<button id="speakButton" type="button"> القارئ الصوتي <img src="../../../assets/img/microphone-01.svg" width="24" height="24" style="margin-inline-start: 8px" /> </button>';
 	//highLightTool+='<li>البطاقات التعليمية</li>';
 	// highLightTool+='<li>Read Aloud from here</li>';
 	highLightTool += '</ul>';
@@ -308,12 +308,12 @@ $(function () {
 	});
 	$('.pf').bind("mouseup", function () {
 		var selectedText = x.Selector.getSelected();
-		
+
 		if (selectedText != '') {
 			console.log(selectedText);
 			$('#selectionText').html(getTextFromHtml(getSelectionHtml()));//.select();
 
-			
+
 
 			// console.log(getSelectionHtml());
 
@@ -411,7 +411,7 @@ $(function () {
 		$('.pf').eq(c_page).css('display', 'block');
 		// Set the zoom value based on the global zoom setting
 		applyZoomToPage($('.pf').eq(c_page));
-	
+
 		$('#pageText').val(c_page);
 		$('#pageText').change();
 	});
@@ -450,21 +450,21 @@ $(function () {
 	// });
 
 	// <script>
-  $('#optionWikipedia').click(function () {
-    var text = $('#selectionText').val();
-    text = text.replace(" ", "_");
-    var url = 'https://ar.wikipedia.org/wiki/' + text;
-    $('#wikipediaFrame').attr('src', url);
-    $('#wikipediaModal').modal('show');
-  });
+	$('#optionWikipedia').click(function () {
+		var text = $('#selectionText').val();
+		text = text.replace(" ", "_");
+		var url = 'https://ar.wikipedia.org/wiki/' + text;
+		$('#wikipediaFrame').attr('src', url);
+		$('#wikipediaModal').modal('show');
+	});
 
-  $('#optionGoogle').click(function () {
-    var text = $('#selectionText').val();
-    text = text.replace(" ", "+");
-    var url = 'https://www.bing.com/search?q=' + text;
-    $('#googleFrame').attr('src', url);
-    $('#googleModal').modal('show');
-  });
+	$('#optionGoogle').click(function () {
+		var text = $('#selectionText').val();
+		text = text.replace(" ", "+");
+		var url = 'https://www.bing.com/search?q=' + text;
+		$('#googleFrame').attr('src', url);
+		$('#googleModal').modal('show');
+	});
 
 
 	$('#searchBox').on('keyup', function () {
@@ -481,7 +481,7 @@ $(function () {
 				if (cText == value) {
 					// Add the 'searchRes' class
 					$(this).addClass('searchRes');
-					
+
 					// Select the parent element and check its data-page-no attribute
 					var parentElement = $(this).closest('[data-page-no]');
 					if (parentElement.length > 0) {
@@ -490,20 +490,20 @@ $(function () {
 					} else {
 						console.error("Parent element with 'data-page-no' not found.");
 					}
-			
+
 					var cIndex = $(this).index();
 					var finalText = $(this).prev().prev().html() + ' ' + $(this).prev().html() + ' ' + cText + ' ' + $(this).next().html() + ' ' + $(this).next().next().html();
 					finalText = stripTags(finalText);
-			
+
 					// Handle other replacements for special characters
 					finalText = finalText.replace(/["“'']/g, '');
-			
+
 					if (cPageNumber) {
 						resultOptions += '<li onclick=\"showSearchReasult(\'' + finalText + '\', \'' + cPageNumber + '\')\">' + finalText + '</li>';
 					}
 				}
 			});
-			
+
 			if (resultOptions == '') {
 				resultOptions += '<li>No match</li>';
 			}
@@ -1041,19 +1041,19 @@ function getCookie(name) {
 	return null;
 }
 function gotToPage(c_page) {
-    $('.pf').css('display', 'none');
-    $('.pf').eq(c_page).css('display', 'block');
-    // Apply zoom when the page changes
-    applyZoomToPage($('.pf').eq(c_page));
+	$('.pf').css('display', 'none');
+	$('.pf').eq(c_page).css('display', 'block');
+	// Apply zoom when the page changes
+	applyZoomToPage($('.pf').eq(c_page));
 
-    $('#pageText').val(c_page);
-    $('#pageText').change();
+	$('#pageText').val(c_page);
+	$('#pageText').change();
 }
 
 // Helper function to apply the zoom to the current page
 function applyZoomToPage(pageElement) {
-    var zoomScale = Number(currentZoomVal) / 10 + 1;
-    setZoom(zoomScale, pageElement[0]);  // Apply the zoom scale
+	var zoomScale = Number(currentZoomVal) / 10 + 1;
+	setZoom(zoomScale, pageElement[0]);  // Apply the zoom scale
 }
 
 //--------------------------------------------------------------------------------------
