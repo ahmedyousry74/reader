@@ -222,7 +222,7 @@ $(function () {
 	//highLightTool+='<li>Define</li><li>أسأل المعلم</li>';
 	highLightTool += '<li id="optionWikipedia">ويكبيديا <img src="../../../assets/img/Wikipedia-logo-v2.svg.png" width="24" height="24" style="margin-inline-start: 8px" /> </li>';
 	highLightTool += '<li id="optionGoogle">بحث  جوجل <img src="../../../assets/img/7123025_logo_google_g_icon.svg" width="30" height="30" style="margin-inline-start: 8px" /> </li>';
-	highLightTool+='<li onclick="saySpeech();">إقرأ من هنا <img src="../../../assets/img/microphone-01.svg" width="24" height="24" style="margin-inline-start: 8px" /> </li>';
+	highLightTool+='<li onclick="saySpeech();"> القارئ الصوتي <img src="../../../assets/img/microphone-01.svg" width="24" height="24" style="margin-inline-start: 8px" /> </li>';
 	//highLightTool+='<li>البطاقات التعليمية</li>';
 	// highLightTool+='<li>Read Aloud from here</li>';
 	highLightTool += '</ul>';
