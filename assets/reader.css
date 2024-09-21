@@ -682,6 +682,9 @@ div#marker_pen_controls {
 .t.readerLine.m9,.t.readerLine.mb,.t.readerLine.mc,.t.readerLine.md,.t.readerLine.me {
   display: none !important;
 }
+#pf1 div.readerLine.t{
+  display: none !important;
+}
 
 .loader {
   display: flex;
