@@ -673,7 +673,7 @@ div#marker_pen_controls {
     display: none;
   }
 }
-.t.readerLine.m1,
+/* .t.readerLine.m1,
 .t.readerLine.m5,
 .t.readerLine.m6,
 .t.readerLine.m4,
@@ -684,7 +684,7 @@ div#marker_pen_controls {
 }
 #pf1 div.readerLine.t{
   display: none !important;
-}
+} */
 
 .loader {
   display: flex;
