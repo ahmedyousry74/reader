@@ -66,7 +66,7 @@ div#outline ul {
   direction: rtl;
   width: 446px;
   background: #f4f4f4;
-  top: 102px;
+  top: 80px;
 }
 #outline a,
 #outline a:visited,
@@ -87,11 +87,11 @@ a.l:hover {
   background-color: rgb(211 233 241);
 }
 #page-container {
-  top: 95px;
+  top: 75px;
 }
 #header {
   position: relative;
-  height: 80px;
+  height: 60px;
   width: 98%;
   background: white;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;

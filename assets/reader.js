@@ -172,6 +172,53 @@ function showOptionItem(itemName, tabnumber) {
 		link.style.borderBottom = 'none';
 	});
 	document.getElementById(tabnumber).style.borderBottom = "solid 1px #006699";
+
+	const url = "https://jeddah.scientific-thought.com/student-panel/find-exam/1/www1?type=1";
+    
+    // Fetch the exam data from the URL
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); // Assuming the response is JSON
+      })
+      .then(data => {
+        const tableBody = document.getElementById('examTableBody');
+        tableBody.innerHTML = ''; // Clear existing rows
+
+        // Iterate through each exam and create a new row
+        data.forEach(exam => {
+          const row = document.createElement('tr');
+          
+          // Create and append cells
+          const titleCell = document.createElement('td');
+          titleCell.textContent = exam.booktitle; // Replace with the appropriate property
+          row.appendChild(titleCell);
+          
+          const dateCell = document.createElement('td');
+          dateCell.textContent = exam.end_date; // Replace with the appropriate property
+          row.appendChild(dateCell);
+
+          const gradeCell = document.createElement('td');
+          gradeCell.textContent = exam.end_date || '__'; // Replace with the appropriate property
+          row.appendChild(gradeCell);
+          
+          const statusCell = document.createElement('td');
+          if (exam.status === 'complete') {
+            statusCell.innerHTML = '<span class="complete">مكتمل</span>';
+          } else {
+            statusCell.innerHTML = `<a href="${exam.link}" target="_blank" class="available">متاح</a>`;
+          }
+          row.appendChild(statusCell);
+          
+          // Append the row to the table body
+          tableBody.appendChild(row);
+        });
+      })
+      .catch(error => {
+        console.error('There was an error fetching the exam data:', error);
+      });
 }
 function showAddNoteBox() {
 
@@ -192,7 +239,7 @@ $(function () {
 
 	$('.pf').eq(configData.page).css('display', 'block');
 	$('body').prepend('<div id="header"><span style="display:flex;justifu-content:flex-start;align-items:center;gap:15px" ><div id="sidebarMenu" style="text-align: center;  float: left; " onclick="showHideSideBar();"><div class="sandwishbar"></div><div class="sandwishbar" style="width: 19px;"></div><div class="sandwishbar"></div></div>' +
-		'<a href="https://scientific-thought.com/" target="_blank"> <img src="../../../assets/img/logo.jpg" width="100" height="85" style="object-fit:contain" />  </a>  </span>' +
+		'<a href="https://scientific-thought.com/" target="_blank"> <img src="../../../assets/img/logo.jpg" width="55" height="55" style="object-fit:contain" />  </a>  </span>' +
 		//'<span style="float:right;" ><img src="../../../assets/img/more.png" class="header_img"></span><span style="float:right;" ><img src="../../../assets/img/flash-card.png"  class="header_img"></span><span style="float:right;" ><img src="../../../assets/img/reference.png" class="header_img"></span>'+
 		'<input style="" id="zoomscroll" min="1" max="10" value="0" step="1" onchange="showVal(this.value)" type="range"/>' +
 		'<div style="display: flex; justify-content: flex-start; align-items: center; flex-direction: row; gap: 20px;"><a href="https://wa.me/+201070113399?text=" target="_blank" style="float:right;" ><img src="../../../assets/img/headphones-01.svg" width="30" height="30"></a>' +
@@ -271,19 +318,8 @@ $(function () {
 			  <th scope="col">الحالة</th>
 			</tr>
 		  </thead>
-		  <tbody>
-			<tr>
-			  <td>مثال 1</td>
-			  <td>2024-09-10</td>
-			  <td>95</td>
-			  <td> <span class="complete"> مكتمل </span> </td>
-			</tr>
-			<tr>
-				<td>مثال 2</td>
-				<td>2024-09-15</td>
-				<td>__</td>
-				<td><a href="https://example.com/exam-link" target="_blank" style="color: #000" class="avalibale">متاح</a></td>
-			</tr>
+		  <tbody id="examTableBody">
+			
 		  </tbody>
 		</table>
 	  </div>
@@ -1057,6 +1093,5 @@ function applyZoomToPage(pageElement) {
 }
 
 //--------------------------------------------------------------------------------------
-
 
 
