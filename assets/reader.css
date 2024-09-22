@@ -814,3 +814,9 @@ div#marker_pen_controls {
   padding: 7px 15px;
   cursor: pointer;
 }
+#optionsSearch img,#optionsTabs img,#noteBoxHtml img{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
+}

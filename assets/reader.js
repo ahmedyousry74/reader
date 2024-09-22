@@ -174,51 +174,51 @@ function showOptionItem(itemName, tabnumber) {
 	document.getElementById(tabnumber).style.borderBottom = "solid 1px #006699";
 
 	const url = "https://jeddah.scientific-thought.com/student-panel/find-exam/1/www1?type=1";
-    
-    // Fetch the exam data from the URL
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json(); // Assuming the response is JSON
-      })
-      .then(data => {
-        const tableBody = document.getElementById('examTableBody');
-        tableBody.innerHTML = ''; // Clear existing rows
 
-        // Iterate through each exam and create a new row
-        data.forEach(exam => {
-          const row = document.createElement('tr');
-          
-          // Create and append cells
-          const titleCell = document.createElement('td');
-          titleCell.textContent = exam.booktitle; // Replace with the appropriate property
-          row.appendChild(titleCell);
-          
-          const dateCell = document.createElement('td');
-          dateCell.textContent = exam.end_date; // Replace with the appropriate property
-          row.appendChild(dateCell);
+	// Fetch the exam data from the URL
+	fetch(url)
+		.then(response => {
+			if (!response.ok) {
+				throw new Error(`HTTP error! Status: ${response.status}`);
+			}
+			return response.json(); // Assuming the response is JSON
+		})
+		.then(data => {
+			const tableBody = document.getElementById('examTableBody');
+			tableBody.innerHTML = ''; // Clear existing rows
 
-          const gradeCell = document.createElement('td');
-          gradeCell.textContent = exam.end_date || '__'; // Replace with the appropriate property
-          row.appendChild(gradeCell);
-          
-          const statusCell = document.createElement('td');
-          if (exam.status === 'complete') {
-            statusCell.innerHTML = '<span class="complete">مكتمل</span>';
-          } else {
-            statusCell.innerHTML = `<a href="${exam.link}" target="_blank" class="available">متاح</a>`;
-          }
-          row.appendChild(statusCell);
-          
-          // Append the row to the table body
-          tableBody.appendChild(row);
-        });
-      })
-      .catch(error => {
-        console.error('There was an error fetching the exam data:', error);
-      });
+			// Iterate through each exam and create a new row
+			data.forEach(exam => {
+				const row = document.createElement('tr');
+
+				// Create and append cells
+				const titleCell = document.createElement('td');
+				titleCell.textContent = exam.booktitle; // Replace with the appropriate property
+				row.appendChild(titleCell);
+
+				const dateCell = document.createElement('td');
+				dateCell.textContent = exam.end_date; // Replace with the appropriate property
+				row.appendChild(dateCell);
+
+				const gradeCell = document.createElement('td');
+				gradeCell.textContent = exam.end_date || '__'; // Replace with the appropriate property
+				row.appendChild(gradeCell);
+
+				const statusCell = document.createElement('td');
+				if (exam.status === 'complete') {
+					statusCell.innerHTML = '<span class="complete">مكتمل</span>';
+				} else {
+					statusCell.innerHTML = `<a href="${exam.link}" target="_blank" class="available">متاح</a>`;
+				}
+				row.appendChild(statusCell);
+
+				// Append the row to the table body
+				tableBody.appendChild(row);
+			});
+		})
+		.catch(error => {
+			console.error('There was an error fetching the exam data:', error);
+		});
 }
 function showAddNoteBox() {
 
@@ -276,10 +276,10 @@ $(function () {
 	$('body').append(highLightTool);
 
 
-	var noteBoxHtml = '<div id="noteBoxHtml" class="optionBox"><h1>أضافة ملاحظات </h1><textarea id="noteInput"></textarea><span id="addNoteBtn" class="addNote">حفظ</span></div>';
+	var noteBoxHtml = '<div id="noteBoxHtml" class="optionBox"> <img src="../../../assets/img/x-close.svg" > <h1>أضافة ملاحظات </h1><textarea id="noteInput"></textarea><span id="addNoteBtn" class="addNote">حفظ</span></div>';
 	$('body').append(noteBoxHtml);
 
-	var optionsTabs = '<div id="optionsTabs">';
+	var optionsTabs = '<div id="optionsTabs"> <img src="../../../assets/img/x-close.svg" >';
 	optionsTabs += '<ul id="optionUrl">';
 	optionsTabs += '<li onclick="showOptionItem(\'Colors\', \'tab1\');" class="tabs " id="tab1"> التمييزات </li>';
 	optionsTabs += '<li onclick="showOptionItem(\'Notes\', \'tab2\');" class="tabs tab2" id="tab2">الملاحظات</li>';
@@ -333,7 +333,7 @@ $(function () {
 	var htmlFooter = '<div id="footer">' + footerMarked + pages_nav + '</div>';
 	$('body').append(htmlFooter);
 
-	var optionsSearch = '<div id="optionsSearch" class="optionBox"><h3>بحث</h3>';
+	var optionsSearch = '<div id="optionsSearch" class="optionBox"><h3>بحث</h3> <img src="../../../assets/img/x-close.svg" >';
 	optionsSearch += '<input type="text" id="searchBox" placeholder="البحث عن" > ';
 	optionsSearch += '<div id="searchResult"></div></div>';
 	$('body').append(optionsSearch);
@@ -388,6 +388,10 @@ $(function () {
 		showHideSideBar();
 		$('#noteBoxHtml').css('display', 'none');
 		setNote();
+	});
+	$('#noteBoxHtml img').on('click', function () {
+		showHideSideBar();
+		$('#noteBoxHtml').css('display', 'none');
 	});
 	$('#tab2').on('click', function () {
 		getAllNotes();
@@ -555,6 +559,11 @@ $(function () {
 
 	});
 
+	$('#optionsSearch img').on('click', function () {
+		showHideSideBar();
+		$('#optionsSearch').css('display', 'none');
+	});
+
 	$('#allOptions').on('click', function () {
 
 		sideBarStatus = 1;
@@ -568,6 +577,11 @@ $(function () {
 		$('#tab6').click();
 
 
+	});
+
+	$('#optionsTabs img').on('click', function () {
+		showHideSideBar();
+		$('#optionsTabs').css('display', 'none');
 	});
 
 	$('#markIt').on('click', function () {
