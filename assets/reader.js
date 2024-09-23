@@ -1109,3 +1109,4 @@ function applyZoomToPage(pageElement) {
 //--------------------------------------------------------------------------------------
 
 
+$('.rvTextRow strong').text('Scientific Thought');
