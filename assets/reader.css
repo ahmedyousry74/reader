@@ -820,3 +820,8 @@ div#marker_pen_controls {
   left: 15px;
   cursor: pointer;
 }
+
+span.highlightItem.active {
+  border: 6px solid #ccc;
+}
+

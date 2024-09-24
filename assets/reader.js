@@ -292,7 +292,7 @@ $(function () {
 	optionsTabs += '<div id="optionResult">';
 	optionsTabs += '<div id="optionColors" class="optionItem">';
 	optionsTabs += '<div id="tabsColorsSelection"><table width="100%" dir="rtl"><tr><Td style="text-align: right;">التمييزات والشروحات</td></tr></table>';
-	optionsTabs += '<table width="100%" dir="rtl"><tr><td style="width:20px;"><span class="highlightItem highlightImportant" color="important" onclick="getAllHighlight(\'importantHighlight\');"></span></td><td style="width:20px;"><span onclick="getAllHighlight(\'examHighlight\')" class="highlightItem highlightExam" color="exam" ></span></td><td style="width:20px;"><span  onclick="getAllHighlight(\'otherHighlight\');" class="highlightItem highlightOther" color="other"></span></td>';
+	optionsTabs += '<table width="100%" dir="rtl"><tr><td style="width:20px;"><span class="highlightItem highlightImportant active" color="important" onclick="toggleActive(this);  getAllHighlight(\'importantHighlight\');"></span></td><td style="width:20px;"><span onclick="toggleActive(this);  getAllHighlight(\'examHighlight\')" class="highlightItem highlightExam" color="exam" ></span></td><td style="width:20px;"><span  onclick="toggleActive(this);  getAllHighlight(\'otherHighlight\');" class="highlightItem highlightOther" color="other"></span></td>';
 	optionsTabs += '<td><i class="fa fa-file"></i></td></tr></table></div>';
 	optionsTabs += '<table id="highlightTable" width="100%" style="border-spacing: 30px;"><tr style="padding: 5px;"><td style="margin: 10px; padding: 15px; border-right: solid 5px #FFEB3B; text-align: right " id="notes1">بعض الملاحظات الهامة</td></tr>';
 	optionsTabs += '<tr><td style="padding: 15px; border-right: solid 5px #FFEB3B; text-align: right " id="notes2">بعض الملاحظات الهامة</td></tr></table>';
@@ -1110,3 +1110,15 @@ function applyZoomToPage(pageElement) {
 
 
 $('.rvTextRow strong').text('Scientific Thought');
+
+
+  function toggleActive(element) {
+    // Remove the 'active' class from all spans with the 'highlightItem' class
+    var highlightItems = document.querySelectorAll('.highlightItem');
+    highlightItems.forEach(function(item) {
+      item.classList.remove('active');
+    });
+
+    // Add the 'active' class to the clicked element
+    element.classList.add('active');
+  }
