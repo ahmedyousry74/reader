@@ -661,7 +661,7 @@ $(function () {
 				var allClasses = cClass.split(" ");
 				$('.' + allClasses[1]).addClass('selectedText');
 				selectionArray[count] = { first: allClasses[1], seconde: allClasses[2] };//allClasses[1];
-				count++;
+				count--;
 
 			}
 
