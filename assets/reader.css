@@ -206,9 +206,9 @@ a.l:hover {
 }
 
 .searchRes {
-  background-color: rgb(212 195 76 / 30%);
-  height: 400px;
-  overflow-y: scroll;
+  background-color: rgb(212 113 76 / 30%);
+  /* height: 400px; */
+  /* overflow-y: scroll; */
 }
 .highlightItem {
   /* border: 1px solid #c1c1c1; */

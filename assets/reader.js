@@ -520,8 +520,8 @@ $(function () {
 				cText = $.trim(cText);
 				if (cText == value) {
 					// Add the 'searchRes' class
-					$(this).addClass('searchRes');
-
+					// $(this).addClass('searchRes');
+					$(this).closest('.t').addClass('searchRes');
 					// Select the parent element and check its data-page-no attribute
 					var parentElement = $(this).closest('[data-page-no]');
 					if (parentElement.length > 0) {
