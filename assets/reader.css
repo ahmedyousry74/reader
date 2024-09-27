@@ -825,3 +825,11 @@ span.highlightItem.active {
   border: 6px solid #ccc;
 }
 
+body{
+  font-family: 'Cairo', sans-serif;
+}
+.t.readerLine {
+  white-space: pre;
+  transform: matrix(-0.30421, 0, 0, 0.5, 0, 12);
+  margin: 0;
+}

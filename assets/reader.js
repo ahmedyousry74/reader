@@ -1,3 +1,86 @@
+document.addEventListener("DOMContentLoaded", function () {
+    // Loader HTML
+    const loaderHtml = `
+        <div class="loader" id="loader" style="width: 100%">
+            <div class="spinner_wrapper">
+                <div class="lds-default">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Modal HTML for translate, Wikipedia, and Google search
+    const modalHtml = `
+        <!-- Translate Modal -->
+        <div class="modal fade" id="translateModal" tabindex="-1" role="dialog" aria-labelledby="translateModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <iframe id="translateFrame" src="" width="100%" height="500" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wikipedia Modal -->
+        <div class="modal fade" id="wikipediaModal" tabindex="-1" role="dialog" aria-labelledby="wikipediaModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <iframe id="wikipediaFrame" width="100%" height="500" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Google Search Modal -->
+        <div class="modal fade" id="googleModal" tabindex="-1" role="dialog" aria-labelledby="googleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <iframe id="googleFrame" width="100%" height="500" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Create a temporary div to hold the HTML
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = loaderHtml + modalHtml;
+
+    // Append the elements directly to the body
+    document.body.appendChild(tempDiv);
+});
+
+
 if (!window.x) {
 	x = {};
 }
@@ -1109,6 +1192,9 @@ function applyZoomToPage(pageElement) {
 //--------------------------------------------------------------------------------------
 
 
+
+
+
 $('.rvTextRow strong').text('Scientific Thought');
 
 
@@ -1122,3 +1208,34 @@ $('.rvTextRow strong').text('Scientific Thought');
     // Add the 'active' class to the clicked element
     element.classList.add('active');
   }
+
+
+
+  $(document).on('click', '#speakButton', function() {
+	// Function to get selected text
+	function getSelectedText() {
+	  let selectedText = '';
+	  if (window.getSelection) {
+		selectedText = window.getSelection().toString(); // Get the selected text
+	  }
+	  return selectedText;
+	}
+
+	// Get the selected text
+	const text = getSelectedText();
+	
+	// Check if text is selected
+	if (text.trim() === "") {
+	  alert('Please select some text to speak.');
+	} else {
+	  // Speak the selected text in Arabic
+	  responsiveVoice.speak(text, "Arabic Male", { rate: 1 });
+	  $('ul.tools').fadeOut(200);
+	}
+  });
+
+
+  window.addEventListener("load", function () {
+	// Hide the loader after the page is fully loaded
+	document.getElementById("loader").style.display = "none";
+});
