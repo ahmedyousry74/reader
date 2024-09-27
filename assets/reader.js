@@ -1,25 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Loader HTML
-    const loaderHtml = `
-        <div class="loader" id="loader" style="width: 100%">
-            <div class="spinner_wrapper">
-                <div class="lds-default">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-        </div>
-    `;
+
 
     // Modal HTML for translate, Wikipedia, and Google search
     const modalHtml = `
@@ -72,12 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     `;
 
-    // Create a temporary div to hold the HTML
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = loaderHtml + modalHtml;
-
-    // Append the elements directly to the body
-    document.body.appendChild(tempDiv);
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
 });
 
 
