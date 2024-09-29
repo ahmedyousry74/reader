@@ -852,7 +852,7 @@ body{
 }
 
 .pc {
-  animation: flipIn 0.8s forwards !important;
+  animation: flipIn 1.2s forwards !important;
 }
 .pc {
   width: 100%;
