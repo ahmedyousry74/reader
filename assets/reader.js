@@ -490,19 +490,22 @@ $(function () {
 	});
 
 
+	const flipSound = document.getElementById('flip-sound');
 	$('#next_page').on('click', function () {
 		$('.pf').css('display', 'none');
 		$('.pf').eq(parseInt($('#pageText').val()) + 1).css('display', 'block');
 		$('#pageText').val(parseInt($('#pageText').val()) + 1);
 		$('#pageText').change();
-
+		const flipSound = document.getElementById('flip-sound');
+		flipSound.play();
 	});
 	$('#back_page').on('click', function () {
 		$('.pf').css('display', 'none');
 		$('.pf').eq(parseInt($('#pageText').val()) - 1).css('display', 'block');
 		$('#pageText').val(parseInt($('#pageText').val()) - 1);
 		$('#pageText').change();
-
+		const flipSound = document.getElementById('flip-sound');
+		flipSound.play();
 	});
 	$('.l').click(function (event) {
 		var c_page = $(this).attr('page');
@@ -513,6 +516,8 @@ $(function () {
 
 		$('#pageText').val(c_page);
 		$('#pageText').change();
+		const flipSound = document.getElementById('flip-sound');
+		flipSound.play();
 	});
 	$('#optionCopy').click(function () {
 
