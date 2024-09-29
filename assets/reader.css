@@ -833,3 +833,16 @@ body{
   transform: matrix(-0.30421, 0, 0, 0.5, 0, 12);
   margin: 0;
 }
+
+.pc{
+  animation: flipIn 0.8s forwards !important;
+}
+
+@keyframes flipIn {
+  from {
+      transform: rotateY(-90deg);
+  }
+  to {
+      transform: rotateY(0deg);
+  }
+}
