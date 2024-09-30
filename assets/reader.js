@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Modal HTML for translate, Wikipedia, and Google search
     const modalHtml = `
+		<audio id="flip-sound" src="../../../assets/img/sound.mp3" preload="auto"></audio>
         <!-- Translate Modal -->
         <div class="modal fade" id="translateModal" tabindex="-1" role="dialog" aria-labelledby="translateModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
