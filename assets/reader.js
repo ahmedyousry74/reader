@@ -494,7 +494,7 @@ $(function () {
 	const flipSound = document.getElementById('flip-sound');
 	$('#next_page').on('click', function () {
 		$('.pf').css('display', 'none');
-		$('.pf').eq(parseInt($('#pageText').val()) + 1).css('display', 'block');
+		$('.pf').eq(parseInt($('#pageText').val()) + 1).css('display', 'block').addClass('flip');
 		$('#pageText').val(parseInt($('#pageText').val()) + 1);
 		$('#pageText').change();
 		const flipSound = document.getElementById('flip-sound');
@@ -502,7 +502,7 @@ $(function () {
 	});
 	$('#back_page').on('click', function () {
 		$('.pf').css('display', 'none');
-		$('.pf').eq(parseInt($('#pageText').val()) - 1).css('display', 'block');
+		$('.pf').eq(parseInt($('#pageText').val()) - 1).css('display', 'block').removeClass('flip').addClass('reverse-flip');
 		$('#pageText').val(parseInt($('#pageText').val()) - 1);
 		$('#pageText').change();
 		const flipSound = document.getElementById('flip-sound');
@@ -511,7 +511,7 @@ $(function () {
 	$('.l').click(function (event) {
 		var c_page = $(this).attr('page');
 		$('.pf').css('display', 'none');
-		$('.pf').eq(c_page).css('display', 'block');
+		$('.pf').eq(c_page).css('display', 'block').addClass('flip');;
 		// Set the zoom value based on the global zoom setting
 		applyZoomToPage($('.pf').eq(c_page));
 
