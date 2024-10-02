@@ -492,26 +492,56 @@ $(function () {
 
 
 	const flipSound = document.getElementById('flip-sound');
+		// $('.pf').css('display', 'none');
+		// $('.pf').eq(parseInt($('#pageText').val())).addClass('flip').removeClass('reverse-flip');
+		// $('.pf').eq(parseInt($('#pageText').val()) + 1).css('display', 'block')
+		// $('#pageText').val(parseInt($('#pageText').val()) + 1);
+		// $('#pageText').change();
+		// const flipSound = document.getElementById('flip-sound');
+		// flipSound.play();
 	$('#next_page').on('click', function () {
-		$('.pf').css('display', 'none');
-		$('.pf').eq(parseInt($('#pageText').val()) + 1).css('display', 'block').addClass('flip').removeClass('reverse-flip');
-		$('#pageText').val(parseInt($('#pageText').val()) + 1);
-		$('#pageText').change();
-		const flipSound = document.getElementById('flip-sound');
-		flipSound.play();
+		const currentPageIndex = parseInt($('#pageText').val());
+	
+		// أضف تأثير flip على الصفحة الحالية أولاً
+		$('.pf').eq(currentPageIndex).addClass('flip').removeClass('reverse-flip');
+	
+		// بعد 1 ثانية (أو أي وقت تريده)، أظهر الصفحة التالية
+		setTimeout(function () {
+			$('.pf').eq(currentPageIndex + 1).css('display', 'block');
+			$('#pageText').val(currentPageIndex + 1);
+			$('#pageText').change();
+	
+			// تشغيل صوت التقليب
+			const flipSound = document.getElementById('flip-sound');
+			flipSound.play();
+		}, 600);  // 1000 ميلي ثانية = 1 ثانية، يمكنك تغيير المدة كما تريد
 	});
 	$('#back_page').on('click', function () {
-		$('.pf').css('display', 'none');
-		$('.pf').eq(parseInt($('#pageText').val()) - 1).css('display', 'block').removeClass('flip').addClass('reverse-flip');
-		$('#pageText').val(parseInt($('#pageText').val()) - 1);
-		$('#pageText').change();
-		const flipSound = document.getElementById('flip-sound');
-		flipSound.play();
+		const currentPageIndex = parseInt($('#pageText').val());
+		const previousPageIndex = currentPageIndex - 1;
+	
+		// إظهار الصفحة السابقة أولاً
+		$('.pf').eq(previousPageIndex).css('display', 'block');
+	
+		// بعد 100 مللي ثانية، تطبيق حركة الـ reverse-flip على الصفحة السابقة
+		setTimeout(function () {
+			$('.pf').eq(previousPageIndex).addClass('reverse-flip').removeClass('flip');
+	
+			// إخفاء الصفحة الحالية بعد انتهاء الحركة
+			$('.pf').eq(currentPageIndex).css('display', 'none');
+			$('#pageText').val(previousPageIndex);
+			$('#pageText').change();
+	
+			// تشغيل صوت التقليب
+			const flipSound = document.getElementById('flip-sound');
+			flipSound.play();
+		}, 0);  // تأخير بسيط لعرض الصفحة قبل تطبيق الـ flip
 	});
+	
 	$('.l').click(function (event) {
 		var c_page = $(this).attr('page');
 		$('.pf').css('display', 'none');
-		$('.pf').eq(c_page).css('display', 'block').addClass('flip').removeClass('reverse-flip');;
+		$('.pf').eq(c_page).css('display', 'block')
 		// Set the zoom value based on the global zoom setting
 		applyZoomToPage($('.pf').eq(c_page));
 
