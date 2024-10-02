@@ -499,33 +499,34 @@ $(function () {
 		// $('#pageText').change();
 		// const flipSound = document.getElementById('flip-sound');
 		// flipSound.play();
-	$('#next_page').on('click', function () {
-		const currentPageIndex = parseInt($('#pageText').val());
-	
-		// أضف تأثير flip على الصفحة الحالية أولاً
-		$('.pf').eq(currentPageIndex).addClass('flip').removeClass('reverse-flip');
-	
-		// بعد 1 ثانية (أو أي وقت تريده)، أظهر الصفحة التالية
-		setTimeout(function () {
-			$('.pf').eq(currentPageIndex + 1).css('display', 'block');
-			$('#pageText').val(currentPageIndex + 1);
-			$('#pageText').change();
-	
-			// تشغيل صوت التقليب
-			const flipSound = document.getElementById('flip-sound');
-			flipSound.play();
-		}, 600);  // 1000 ميلي ثانية = 1 ثانية، يمكنك تغيير المدة كما تريد
-	});
+		$('#next_page').on('click', function () {
+			const currentPageIndex = parseInt($('#pageText').val());
+		
+			// أضف تأثير flip على الصفحة الحالية أولاً
+			$('.pf').eq(currentPageIndex).addClass('flip').removeClass('reverse-flip');
+		
+			// بعد 1 ثانية (أو أي وقت تريده)، أظهر الصفحة التالية
+			setTimeout(function () {
+				$('.pf').eq(currentPageIndex + 1).css('display', 'block');
+				$('#pageText').val(currentPageIndex + 1);
+				$('#pageText').change();
+				
+				// تشغيل صوت التقليب
+				const flipSound = document.getElementById('flip-sound');
+				flipSound.play();
+			}, 1000);  // 1000 ميلي ثانية = 1 ثانية، يمكنك تغيير المدة كما تريد
+			$('.pf').eq(currentPageIndex + 1).removeClass('reverse-flip');
+		});
 	$('#back_page').on('click', function () {
 		const currentPageIndex = parseInt($('#pageText').val());
 		const previousPageIndex = currentPageIndex - 1;
 	
 		// إظهار الصفحة السابقة أولاً
-		$('.pf').eq(previousPageIndex).css('display', 'block');
-	
+		$('.pf').eq(previousPageIndex).addClass('reverse-flip').removeClass('flip');
+		
 		// بعد 100 مللي ثانية، تطبيق حركة الـ reverse-flip على الصفحة السابقة
 		setTimeout(function () {
-			$('.pf').eq(previousPageIndex).addClass('reverse-flip').removeClass('flip');
+			$('.pf').eq(previousPageIndex).css('display', 'block');
 	
 			// إخفاء الصفحة الحالية بعد انتهاء الحركة
 			$('.pf').eq(currentPageIndex).css('display', 'none');
@@ -535,8 +536,9 @@ $(function () {
 			// تشغيل صوت التقليب
 			const flipSound = document.getElementById('flip-sound');
 			flipSound.play();
-		}, 0);  // تأخير بسيط لعرض الصفحة قبل تطبيق الـ flip
+		}, 300);  // تأخير بسيط لعرض الصفحة قبل تطبيق الـ flip
 	});
+	
 	
 	$('.l').click(function (event) {
 		var c_page = $(this).attr('page');
